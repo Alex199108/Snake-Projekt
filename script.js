@@ -1,6 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-const cellZise = 20;
+const cellSize = 20;
 
 
 let snake =  [
@@ -12,12 +12,12 @@ let snake =  [
 function drawSnake(){
     ctx.fillStyle='green';
     for(let segment of snake){
-        ctx.fillRect(segment.x * cellZise, segment.y*cellZise, cellZise, cellZise);
+        ctx.fillRect(segment.x * cellSize, segment.y*cellSize, cellSize, cellSize);
     }
 
     /*
         snake.forEach((segment) => {
-            ctx.fillRect(segment.x * cellZise, segment.y*cellZise, cellZise, cellZise);    
+            ctx.fillRect(segment.x * cellSise, segment.y*cellZise, cellZise, cellZise);    
         });
     */
 }
