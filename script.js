@@ -12,12 +12,12 @@ let snake =  [
 function drawSnake(){
     ctx.fillStyle='green';
     for(let segment of snake){
-        ctx.fillRect(segment.x * cellSize, segment.y*cellSize, cellSize, cellSize);
+        ctx.fillRect(segment.x * cellSize, segment.y * cellSize, cellSize, cellSize);
     }
 
     /*
         snake.forEach((segment) => {
-            ctx.fillRect(segment.x * cellSise, segment.y*cellZise, cellZise, cellZise);    
+            ctx.fillRect(segment.x * cellSize, segment.y*cellSize, cellSize, cellSize);
         });
     */
 }
