@@ -27,4 +27,15 @@ function draw(){
     drawSnake();
 }
 
+function moveSnake(){
+    const newHead = {x: snake[0].x + 1, y: snake[0].y};
+    snake.unshift(newHead);
+    snake.pop();
+
+}
+
+draw();
+moveSnake();
+draw();
+moveSnake();
 draw();
