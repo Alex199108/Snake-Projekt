@@ -2,9 +2,9 @@ class Snake{
     
     currentDirection = "ArrowRight";
     lastDirection = null;
-
-
     cellSize = 20;
+    speed = 200;
+    lastMoveTime = 0;
 
 
     constructor(){
@@ -19,6 +19,7 @@ class Snake{
         this.updateSnake();
 
         this.createEvents();
+        this.start();
 
     }
 
@@ -38,6 +39,19 @@ class Snake{
 
         this.currentDirection = event.key;
         console.log("direction", this.currentDirection)
+    }
+
+    loop(timestamp){
+
+        if(timestamp - this.lastMoveTime >= this.speed){
+            this.move();
+            this.lastMoveTime = timestamp;
+        }
+        this.start();
+    }
+
+    start(){
+        requestAnimationFrame((timestamp) => this.loop(timestamp));
     }
 
     move(){
@@ -86,11 +100,7 @@ class Snake{
         }
 
         this.segments.unshift(newHead);
-//        console.log(this.segments);
         this.segments.pop();
-
-
-        console.log(this.segments);
         this.updateSnake();
     }
 
