@@ -10,13 +10,13 @@ class Snake{
     constructor(){
 
         this.world = new World(600, 600);
-        this.world.draw();
 
         this.segments = [
             {x: 5, y: 5},
             {x: 6, y: 5},
             {x: 7, y: 5}
         ];
+        this.updateSnake();
 
         this.createEvents();
 
@@ -37,7 +37,6 @@ class Snake{
         this.lastDirection = this.currentDirection;
 
         this.currentDirection = event.key;
-        this.move();
         console.log("direction", this.currentDirection)
     }
 
