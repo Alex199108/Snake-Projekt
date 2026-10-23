@@ -8,6 +8,7 @@ Snake-Spiel in HTML5 Canvas und JavaScript — Übungsprojekt im Rahmen der Umsc
 - [x] Snake als Array von Grid-Koordinaten darstellen
 - [x] Snake zeichnen (updateSnake in der Klasse Snake)
 - [x] Bewegung der Schlange (Tastatursteuerung)
+- [x] Game Loop (requestAnimationFrame, ein Schritt alle 200 ms)
 - [ ] Kollisionserkennung (Wand, eigener Körper)
 - [ ] Futter-Logik und Punktestand
 
@@ -15,6 +16,6 @@ Snake-Spiel in HTML5 Canvas und JavaScript — Übungsprojekt im Rahmen der Umsc
 
 - `index.html` — lädt die Skripte und startet das Spiel (`new Snake()`)
 - `World.js` — Klasse `World`: erstellt das Canvas mit Rahmen, stellt den Context bereit und leert das Spielfeld
-- `Snake.js` — Klasse `Snake`: Segmente, Steuerung mit den Pfeiltasten, Bewegung und Zeichnen der Schlange
+- `Snake.js` — Klasse `Snake`: Segmente, Steuerung mit den Pfeiltasten (Gegenrichtung gesperrt), Bewegung und Zeichnen der Schlange
 - `script.js` — erste Version ohne Klassen (wird nicht mehr verwendet)
 - `notizen.js` — JavaScript-Übungen (Grundkonzepte, getrennt vom Spielcode)
