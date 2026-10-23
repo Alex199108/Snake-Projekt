@@ -1,7 +1,7 @@
 class Snake{
     
     currentDirection = "ArrowRight";
-    lastDirection = null;
+    lastDirection = this.currentDirection;
     cellSize = 20;
     speed = 200;
     lastMoveTime = 0;
@@ -31,11 +31,20 @@ class Snake{
         if(!event.key.startsWith("Arrow")){
             return;
         }
-
         event.preventDefault();
-
-
-        this.lastDirection = this.currentDirection;
+        
+        if(this.lastDirection === "ArrowRight" && event.key === "ArrowLeft"){
+            return;
+        }
+        if(this.lastDirection === "ArrowLeft" && event.key === "ArrowRight"){
+            return;
+        }
+        if(this.lastDirection ==="ArrowUp" && event.key === "ArrowDown"){
+            return;
+        }
+        if(this.lastDirection === "ArrowDown" && event.key === "ArrowUp"){
+            return;
+        }
 
         this.currentDirection = event.key;
         console.log("direction", this.currentDirection)
@@ -58,26 +67,6 @@ class Snake{
         //const newHead = {x:this.segments[0].x + 1, y:this.segments[0].y};
         const head = this.segments[0];
         let newHead;
-
-        if(this.lastDirection === "ArrowRight" && this.currentDirection === "ArrowLeft"){
-            this.currentDirection = "ArrowRight";
-            return;
-        }
-        if(this.lastDirection === "ArrowLeft" && this.currentDirection === "ArrowRight"){
-            this.currentDirection = "ArrowLeft";
-            return;
-        }
-        
-        if(this.lastDirection === "ArrowUp" && this.currentDirection === "ArrowDown"){
-            this.currentDirection = "ArrowUp";
-            return;
-        }
-
-        if(this.lastDirection === "ArrowDown" && this.currentDirection === "ArrowUp"){
-            this.currentDirection = "ArrowDown";
-            return;
-        }
-        
         
         switch(this.currentDirection){
             case "ArrowRight":{
@@ -101,6 +90,7 @@ class Snake{
 
         this.segments.unshift(newHead);
         this.segments.pop();
+        this.lastDirection = this.currentDirection;
         this.updateSnake();
     }
 
