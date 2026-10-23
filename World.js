@@ -21,6 +21,14 @@ class World{
         return this.ctx;
      }
 
+     getWidth(){
+      return this.canvas.width;
+     }
+
+     getHeight(){
+      return this.canvas.height;
+     }
+
 
 
 
