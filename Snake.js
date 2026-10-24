@@ -96,6 +96,7 @@ class Snake{
 
         if(newHead.x >= columns || newHead.x < 0 || newHead.y >= rows || newHead.y < 0){
             this.isGameOver = true;
+            this.drawGameOver();
             return;
         }
 
@@ -115,6 +116,15 @@ class Snake{
         this.segments.forEach((segment)=>{
             ctx.fillRect(segment.x * this.cellSize, segment.y * this.cellSize, this.cellSize, this.cellSize);
         })
+    }
+
+    drawGameOver(){
+        const ctx = this.world.getContext();
+        ctx.fillStyle = "red";
+        ctx.font = "48px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Game Over", this.world.getWidth() / 2, this.world.getHeight() / 2);
     }
 
 
