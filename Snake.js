@@ -87,13 +87,18 @@ class Snake{
                 break;
             }
         }
+        const columns = this.world.getWidth() / this.cellSize;
+        const rows = this.world.getHeight() / this.cellSize;
+
+        if(newHead.x >= columns || newHead.x < 0 || newHead.y >= rows || newHead.y < 0){
+            console.log("Achtung Wand");
+        }
 
         this.segments.unshift(newHead);
         this.segments.pop();
         this.lastDirection = this.currentDirection;
         this.updateSnake();
     }
-
 
     updateSnake(){
         const ctx = this.world.getContext();
