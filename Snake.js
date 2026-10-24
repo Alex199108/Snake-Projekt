@@ -5,6 +5,7 @@ class Snake{
     cellSize = 20;
     speed = 200;
     lastMoveTime = 0;
+    isGameOver = false;
 
 
     constructor(){
@@ -56,6 +57,9 @@ class Snake{
             this.move();
             this.lastMoveTime = timestamp;
         }
+        if(this.isGameOver){
+            return;
+        }
         this.start();
     }
 
@@ -91,7 +95,8 @@ class Snake{
         const rows = this.world.getHeight() / this.cellSize;
 
         if(newHead.x >= columns || newHead.x < 0 || newHead.y >= rows || newHead.y < 0){
-            console.log("Achtung Wand");
+            this.isGameOver = true;
+            return;
         }
 
         this.segments.unshift(newHead);
