@@ -8,9 +8,8 @@ class Snake{
     isGameOver = false;
 
 
-    constructor(){
-
-        this.world = new World(600, 600);
+    constructor(world){
+        this.world = world;
 
         this.segments = [
             {x: 5, y: 5},
