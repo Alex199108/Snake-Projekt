@@ -84,7 +84,28 @@ class Snake{
         if(newHead.x === this.food.position.x && newHead.y === this.food.position.y){
             console.log("Eat");
             this.food.spawn();
-            this.segments.push();
+            this.segments.push(newHead);
+
+            switch(this.currentDirection){
+                case "ArrowRight":{
+                    newHead = {x: newHead.x + 1, y: newHead.y};
+                    break;
+                }
+                case "ArrowDown":{
+                    newHead = {x: newHead.x, y: newHead.y + 1};
+                    break;
+                }
+                case "ArrowLeft":{
+                    newHead = {x: newHead.x - 1, y: newHead.y};
+                    break;
+                }
+
+                case "ArrowUp":{
+                    newHead = {x: newHead.x, y: newHead.y - 1};
+                    break;
+                }
+            }
+
             console.log(this.segments.length);
 
         }
