@@ -4,8 +4,9 @@ class Game{
 
     constructor(){
         this.world = new World(600, 600);
-        this.snake = new Snake(this.world);
         this.food = new Food(this.world);
+        this.snake = new Snake(this.world, this.food);
+        this.food.spawn();
         this.draw();
         this.start();
         
@@ -28,8 +29,9 @@ class Game{
     start(){
         requestAnimationFrame((timestamp) => this.loop(timestamp));
     }
-    draw(){
 
+
+    draw(){
 
         this.world.draw();
         this.food.draw();

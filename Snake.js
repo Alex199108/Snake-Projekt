@@ -6,8 +6,9 @@ class Snake{
     isGameOver = false;
 
 
-    constructor(world){
+    constructor(world, food){
         this.world = world;
+        this.food = food;
 
         this.segments = [
             {x: 5, y: 5},
@@ -79,6 +80,18 @@ class Snake{
             this.isGameOver = true;
             return;
         }
+
+        if(newHead.x === this.food.position.x && newHead.y === this.food.position.y){
+            console.log("Eat");
+            this.food.spawn();
+            this.segments.push();
+            console.log(this.segments.length);
+
+        }
+        //does snake hit the Food, if yes, eat it and spawn new food
+            //this.food.getPositio();
+            //this.foot.spawn();
+
 
         this.segments.shift();
         this.segments.push(newHead);

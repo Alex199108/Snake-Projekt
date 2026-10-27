@@ -13,6 +13,8 @@ class World{
         document.body.appendChild(this.canvas);
 
         this.ctx = this.canvas.getContext('2d');
+        this.columns = width / this.cellSize;
+        this.rows = height / this.cellSize;
     }
 
      draw(){
