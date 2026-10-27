@@ -48,7 +48,7 @@ class Snake{
 
     move(){
         //const newHead = {x:this.segments[0].x + 1, y:this.segments[0].y};
-        const head = this.segments[0];
+        const head = this.segments[this.segments.length - 1];
         let newHead;
         
         switch(this.currentDirection){
@@ -79,21 +79,26 @@ class Snake{
             return;
         }
 
-        this.segments.unshift(newHead);
-        this.segments.pop();
+        this.segments.shift();
+        this.segments.push(newHead);
         this.lastDirection = this.currentDirection;
         this.updateSnake();
     }
 
     updateSnake(){
         const ctx = this.world.getContext();
-        ctx.fillStyle = "green";
 
 
         this.world.draw();
 
-        this.segments.forEach((segment)=>{
+        ctx.fillStyle = "green";
+        this.segments.forEach((segment, index)=>{
+
+            if (index === this.segments.length - 1)
+                ctx.fillStyle = "red";
+
             ctx.fillRect(segment.x * this.cellSize, segment.y * this.cellSize, this.cellSize, this.cellSize);
+
         })
     }
 

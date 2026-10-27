@@ -1,6 +1,7 @@
 class Game{
     speed = 200;
     lastMoveTime = 0;
+
     constructor(){
         this.world = new World(600, 600);
         this.snake = new Snake(this.world);
