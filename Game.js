@@ -5,7 +5,10 @@ class Game{
     constructor(){
         this.world = new World(600, 600);
         this.snake = new Snake(this.world);
+        this.food = new Food(this.world);
+        this.draw();
         this.start();
+        
     }
 
      loop(timestamp){
@@ -13,6 +16,8 @@ class Game{
         if(timestamp - this.lastMoveTime >= this.speed){
             this.snake.move();
             this.lastMoveTime = timestamp;
+
+            this.draw();
         }
         if(this.snake.isGameOver){
             return;
@@ -22,5 +27,17 @@ class Game{
 
     start(){
         requestAnimationFrame((timestamp) => this.loop(timestamp));
+    }
+    draw(){
+
+
+        this.world.draw();
+        this.food.draw();
+        this.snake.updateSnake();
+
+        if (this.snake.isGameOver){
+            this.world.drawGameOver();
+        }
+
     }
 }
