@@ -2,7 +2,7 @@ class Snake{
     
     currentDirection = "ArrowRight";
     lastDirection = this.currentDirection;
-    cellSize = 20;
+    //cellSize = 20;
     isGameOver = false;
 
 
@@ -15,8 +15,9 @@ class Snake{
             {x: 7, y: 5}
         ];
 
-        this.columns = this.world.getWidth() / this.cellSize;
-        this.rows = this.world.getHeight() / this.cellSize;
+        this.columns = this.world.getWidth() / this.world.cellSize;
+        this.rows = this.world.getHeight() / this.world.cellSize;
+
         this.updateSnake();
 
         this.createEvents();
@@ -76,22 +77,20 @@ class Snake{
 
         if(newHead.x >= this.columns || newHead.x < 0 || newHead.y >= this.rows || newHead.y < 0){
             this.isGameOver = true;
-            this.drawGameOver();
-            console.log(newHead);
             return;
         }
 
         this.segments.shift();
         this.segments.push(newHead);
         this.lastDirection = this.currentDirection;
-        this.updateSnake();
+        
     }
 
     updateSnake(){
         const ctx = this.world.getContext();
 
 
-        this.world.draw();
+        
 
         ctx.fillStyle = "green";
         this.segments.forEach((segment, index)=>{
@@ -99,19 +98,11 @@ class Snake{
             if (index === this.segments.length - 1)
                 ctx.fillStyle = "red";
 
-            ctx.fillRect(segment.x * this.cellSize, segment.y * this.cellSize, this.cellSize, this.cellSize);
+            ctx.fillRect(segment.x * this.world.cellSize, segment.y * this.world.cellSize, this.world.cellSize, this.world.cellSize);
 
-        })
+        });
     }
 
-    drawGameOver(){
-        const ctx = this.world.getContext();
-        ctx.fillStyle = "red";
-        ctx.font = "48px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("Game Over", this.world.getWidth() / 2, this.world.getHeight() / 2);
-    }
 
 
 

@@ -2,6 +2,8 @@ class World{
 
     canvas = null;
     ctx = null;
+    cellSize = 20;
+
 
     constructor( width, height) {
         this.canvas = document.createElement("canvas");
@@ -16,6 +18,16 @@ class World{
      draw(){
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
      }
+
+
+    drawGameOver(){
+        const ctx = this.ctx;
+        ctx.fillStyle = "red";
+        ctx.font = "48px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Game Over", this.getWidth() / 2, this.getHeight() / 2);
+    }
 
      getContext(){
         return this.ctx;
