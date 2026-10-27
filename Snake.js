@@ -14,6 +14,9 @@ class Snake{
             {x: 6, y: 5},
             {x: 7, y: 5}
         ];
+
+        this.columns = this.world.getWidth() / this.cellSize;
+        this.rows = this.world.getHeight() / this.cellSize;
         this.updateSnake();
 
         this.createEvents();
@@ -47,7 +50,7 @@ class Snake{
     }
 
     move(){
-        //const newHead = {x:this.segments[0].x + 1, y:this.segments[0].y};
+        
         const head = this.segments[this.segments.length - 1];
         let newHead;
         
@@ -70,12 +73,11 @@ class Snake{
                 break;
             }
         }
-        const columns = this.world.getWidth() / this.cellSize;
-        const rows = this.world.getHeight() / this.cellSize;
 
-        if(newHead.x >= columns || newHead.x < 0 || newHead.y >= rows || newHead.y < 0){
+        if(newHead.x >= this.columns || newHead.x < 0 || newHead.y >= this.rows || newHead.y < 0){
             this.isGameOver = true;
             this.drawGameOver();
+            console.log(newHead);
             return;
         }
 
