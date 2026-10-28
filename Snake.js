@@ -76,7 +76,7 @@ class Snake{
             }
         }
 
-        if(newHead.x >= this.columns || newHead.x < 0 || newHead.y >= this.rows || newHead.y < 0){
+        if(newHead.x >= this.columns || newHead.x < 0 || newHead.y >= this.rows || newHead.y < 0 || this.isOnBody(newHead)){
             this.isGameOver = true;
             return;
         }
@@ -119,6 +119,15 @@ class Snake{
         this.segments.push(newHead);
         this.lastDirection = this.currentDirection;
         
+    }
+
+    isOnBody(newHead){
+        for(let segment of this.segments){
+            if(newHead.x === segment.x && newHead.y === segment.y){
+                return true;
+            }
+        }
+        return false;
     }
 
     updateSnake(){
