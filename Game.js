@@ -8,6 +8,7 @@ class Game{
         this.snake = new Snake(this.world, this.food);
         this.food.spawn(this.snake.segments);
         this.scoreElement = document.getElementById("score"); 
+        this.restartGame();
         this.draw();
         this.start();
         
@@ -43,5 +44,13 @@ class Game{
             this.world.drawGameOver();
         }
 
+    }
+
+    restartGame(){
+        document.addEventListener("keydown", (event)=>{
+            if(this.snake.isGameOver && event.key === " "){
+                location.reload();
+            }
+        });
     }
 }

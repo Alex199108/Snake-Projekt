@@ -13,6 +13,7 @@ Snake-Spiel in HTML5 Canvas und JavaScript — Übungsprojekt im Rahmen der Umsc
 - [x] Kollisionserkennung eigener Körper
 - [x] Futter-Logik (zufällig, Respawn, Wachstum)
 - [x] Punktestand
+- [x] Restart
 
 ## Dateien
 
@@ -23,3 +24,4 @@ Snake-Spiel in HTML5 Canvas und JavaScript — Übungsprojekt im Rahmen der Umsc
 - `Food.js` — Klasse `Food`: zufällige Position (nie auf der Schlange) und Zeichnen
 - `script.js` — erste Version ohne Klassen (wird nicht mehr verwendet)
 - `notizen.js` — JavaScript-Übungen (Grundkonzepte, getrennt vom Spielcode)
+- `style.css` 
