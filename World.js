@@ -9,7 +9,7 @@ class World{
         this.canvas = document.createElement("canvas");
         this.canvas.width = width;
         this.canvas.height = height;
-        this.canvas.style.border = "1px solid red"; 
+        //this.canvas.style.border = "1px solid rosybrown"; 
         document.body.appendChild(this.canvas);
 
         this.ctx = this.canvas.getContext('2d');
