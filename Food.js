@@ -11,14 +11,13 @@ class Food{
     }
 
     spawn(segments){
-        this.position.x =  Math.floor(Math.random() * this.world.columns); // random
-        this.position.y =  Math.floor(Math.random() * this.world.rows);
-        while(this.isOnSnake(segments)){
+
+        do{
             
             this.position.x = Math.floor(Math.random() * this.world.columns);
             this.position.y = Math.floor(Math.random() * this.world.rows);
             
-        }
+        }while(this.isOnSnake(segments));
     }
 
     getPosition(){
