@@ -32,10 +32,17 @@ class Food{
 
         const ctx = this.world.getContext();
         const size = this.world.cellSize;
+        const centerX = this.position.x * size + size / 2;
+        const centerY = this.position.y * size + size / 2;
+        const radius = size / 2;
+        
         //this.world.draw();
         //this.snake.updateSnake();
         ctx.fillStyle = "pink";
-        ctx.fillRect(this.position.x * size, this.position.y * size, size, size );
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fill();
+        //ctx.fillRect(this.position.x * size, this.position.y * size, size, size );
     }
     
     isOnSnake(segments){
