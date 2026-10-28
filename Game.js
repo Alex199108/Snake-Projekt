@@ -7,6 +7,7 @@ class Game{
         this.food = new Food(this.world);
         this.snake = new Snake(this.world, this.food);
         this.food.spawn(this.snake.segments);
+        this.scoreElement = document.getElementById("score"); 
         this.draw();
         this.start();
         
@@ -36,6 +37,7 @@ class Game{
         this.world.draw();
         this.food.draw();
         this.snake.updateSnake();
+        this.scoreElement.textContent = this.snake.getScore();
 
         if (this.snake.isGameOver){
             this.world.drawGameOver();

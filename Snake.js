@@ -16,6 +16,8 @@ class Snake{
             {x: 7, y: 5}
         ];
 
+        this.startLength = this.segments.length;
+
         this.columns = this.world.getWidth() / this.world.cellSize;
         this.rows = this.world.getHeight() / this.world.cellSize;
 
@@ -145,6 +147,9 @@ class Snake{
             ctx.fillRect(segment.x * this.world.cellSize, segment.y * this.world.cellSize, this.world.cellSize, this.world.cellSize);
 
         });
+    }
+    getScore(){
+        return (this.segments.length - this.startLength) * 10;
     }
 
 

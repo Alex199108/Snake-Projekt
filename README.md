@@ -12,7 +12,7 @@ Snake-Spiel in HTML5 Canvas und JavaScript — Übungsprojekt im Rahmen der Umsc
 - [x] Kollisionserkennung Wand (Game Over)
 - [x] Kollisionserkennung eigener Körper
 - [x] Futter-Logik (zufällig, Respawn, Wachstum)
-- [ ] Punktestand
+- [x] Punktestand
 
 ## Dateien
 
