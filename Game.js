@@ -6,7 +6,7 @@ class Game{
         this.world = new World(600, 600);
         this.food = new Food(this.world);
         this.snake = new Snake(this.world, this.food);
-        this.food.spawn();
+        this.food.spawn(this.snake.segments);
         this.draw();
         this.start();
         

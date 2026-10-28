@@ -83,7 +83,7 @@ class Snake{
 
         if(newHead.x === this.food.position.x && newHead.y === this.food.position.y){
             console.log("Eat");
-            this.food.spawn();
+            this.food.spawn(this.segments);
             this.segments.push(newHead);
 
             switch(this.currentDirection){
@@ -107,6 +107,7 @@ class Snake{
             }
 
             console.log(this.segments.length);
+            
 
         }
         //does snake hit the Food, if yes, eat it and spawn new food
