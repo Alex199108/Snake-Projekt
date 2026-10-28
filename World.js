@@ -29,6 +29,9 @@ class World{
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText("Game Over", this.getWidth() / 2, this.getHeight() / 2);
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "lightgrey";
+        ctx.fillText("Press Space to restart", this.getWidth() / 2, this.getHeight() / 2 + 35);
     }
 
      getContext(){
