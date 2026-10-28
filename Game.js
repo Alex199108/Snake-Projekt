@@ -19,6 +19,18 @@ class Game{
         if(timestamp - this.lastMoveTime >= this.speed){
             this.snake.move();
             this.lastMoveTime = timestamp;
+            if(this.snake.getScore() >= 150){
+                this.speed = 50;
+                console.log(this.speed);
+            }
+            if(this.snake.getScore() >= 100){
+                this.speed = 100;
+                console.log(this.speed);
+            }
+            if(this.snake.getScore() >= 30){
+                this.speed = 150;
+                console.log(this.speed);
+            }
 
             this.draw();
         }
