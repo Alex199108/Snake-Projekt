@@ -1,54 +1,49 @@
-class World{
+class World {
+  canvas = null;
+  ctx = null;
+  cellSize = 20;
 
-    canvas = null;
-    ctx = null;
-    cellSize = 20;
+  constructor(width, height) {
+    this.canvas = document.createElement("canvas");
+    this.canvas.width = width;
+    this.canvas.height = height;
+    //this.canvas.style.border = "1px solid rosybrown";
+    document.body.appendChild(this.canvas);
 
+    this.ctx = this.canvas.getContext("2d");
+    this.columns = width / this.cellSize;
+    this.rows = height / this.cellSize;
+  }
 
-    constructor( width, height) {
-        this.canvas = document.createElement("canvas");
-        this.canvas.width = width;
-        this.canvas.height = height;
-        //this.canvas.style.border = "1px solid rosybrown"; 
-        document.body.appendChild(this.canvas);
+  draw() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
 
-        this.ctx = this.canvas.getContext('2d');
-        this.columns = width / this.cellSize;
-        this.rows = height / this.cellSize;
-    }
+  drawGameOver() {
+    const ctx = this.ctx;
+    ctx.fillStyle = "red";
+    ctx.font = "48px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("Game Over", this.getWidth() / 2, this.getHeight() / 2);
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "lightgrey";
+    ctx.fillText(
+      "Press Space to restart",
+      this.getWidth() / 2,
+      this.getHeight() / 2 + 35,
+    );
+  }
 
-     draw(){
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-     }
+  getContext() {
+    return this.ctx;
+  }
 
+  getWidth() {
+    return this.canvas.width;
+  }
 
-    drawGameOver(){
-        const ctx = this.ctx;
-        ctx.fillStyle = "red";
-        ctx.font = "48px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("Game Over", this.getWidth() / 2, this.getHeight() / 2);
-        ctx.font = "20px Arial";
-        ctx.fillStyle = "lightgrey";
-        ctx.fillText("Press Space to restart", this.getWidth() / 2, this.getHeight() / 2 + 35);
-    }
-
-     getContext(){
-        return this.ctx;
-     }
-
-     getWidth(){
-      return this.canvas.width;
-     }
-
-     getHeight(){
-      return this.canvas.height;
-     }
-
-
-
-
+  getHeight() {
+    return this.canvas.height;
+  }
 }
-
-
