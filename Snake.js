@@ -53,27 +53,8 @@ class Snake {
 
   move() {
     const head = this.segments[this.segments.length - 1];
-    let newHead;
 
-    switch (this.currentDirection) {
-      case "ArrowRight": {
-        newHead = { x: head.x + 1, y: head.y };
-        break;
-      }
-      case "ArrowDown": {
-        newHead = { x: head.x, y: head.y + 1 };
-        break;
-      }
-      case "ArrowLeft": {
-        newHead = { x: head.x - 1, y: head.y };
-        break;
-      }
-
-      case "ArrowUp": {
-        newHead = { x: head.x, y: head.y - 1 };
-        break;
-      }
-    }
+    let newHead = this.getNextPosition(head, this.currentDirection);
 
     if (
       newHead.x >= this.columns ||
@@ -132,6 +113,18 @@ class Snake {
       }
     }
     return false;
+  }
+
+  getNextPosition(position, direction) {
+    if (direction === "ArrowRight") {
+      return { x: position.x + 1, y: position.y };
+    } else if (direction === "ArrowLeft") {
+      return { x: position.x - 1, y: position.y };
+    } else if (direction === "ArrowUp") {
+      return { x: position.x, y: position.y - 1 };
+    } else {
+      return { x: position.x, y: position.y + 1 };
+    }
   }
 
   updateSnake() {
