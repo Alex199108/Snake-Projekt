@@ -1,5 +1,11 @@
 class Snake {
   currentDirection = "ArrowRight";
+  oppositeOf = {
+    ArrowLeft: "ArrowRight",
+    ArrowRight: "ArrowLeft",
+    ArrowUp: "ArrowDown",
+    ArrowDown: "ArrowUp",
+  };
   lastDirection = this.currentDirection;
   //cellSize = 20;
   isGameOver = false;
