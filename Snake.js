@@ -48,7 +48,6 @@ class Snake {
     }
 
     this.currentDirection = event.key;
-    console.log("direction", this.currentDirection);
   }
 
   move() {
@@ -71,35 +70,11 @@ class Snake {
       newHead.x === this.food.position.x &&
       newHead.y === this.food.position.y
     ) {
-      console.log("Eat");
       this.food.spawn(this.segments);
       this.segments.push(newHead);
 
-      switch (this.currentDirection) {
-        case "ArrowRight": {
-          newHead = { x: newHead.x + 1, y: newHead.y };
-          break;
-        }
-        case "ArrowDown": {
-          newHead = { x: newHead.x, y: newHead.y + 1 };
-          break;
-        }
-        case "ArrowLeft": {
-          newHead = { x: newHead.x - 1, y: newHead.y };
-          break;
-        }
-
-        case "ArrowUp": {
-          newHead = { x: newHead.x, y: newHead.y - 1 };
-          break;
-        }
-      }
-
-      console.log(this.segments.length);
+      newHead = this.getNextPosition(newHead, this.currentDirection);
     }
-    //does snake hit the Food, if yes, eat it and spawn new food
-    //this.food.getPositio();
-    //this.foot.spawn();
 
     this.segments.shift();
     this.segments.push(newHead);
