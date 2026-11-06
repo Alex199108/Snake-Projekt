@@ -39,17 +39,7 @@ class Snake {
       return;
     }
     event.preventDefault();
-
-    if (this.lastDirection === "ArrowRight" && event.key === "ArrowLeft") {
-      return;
-    }
-    if (this.lastDirection === "ArrowLeft" && event.key === "ArrowRight") {
-      return;
-    }
-    if (this.lastDirection === "ArrowUp" && event.key === "ArrowDown") {
-      return;
-    }
-    if (this.lastDirection === "ArrowDown" && event.key === "ArrowUp") {
+    if (event.key === this.oppositeOf[this.lastDirection]) {
       return;
     }
 
