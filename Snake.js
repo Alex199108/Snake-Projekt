@@ -7,7 +7,6 @@ class Snake {
     ArrowDown: "ArrowUp",
   };
   lastDirection = this.currentDirection;
-  //cellSize = 20;
   isGameOver = false;
 
   constructor(world, food) {
@@ -116,44 +115,4 @@ class Snake {
   getScore() {
     return (this.segments.length - this.startLength) * 10;
   }
-
-  /*
-
-
-
-function ShowDirection(event){
-    if(event.key.startsWith("Arrow")){
-        event.preventDefault();
-    }
-    switch(event.key){
-        case "ArrowUp":
-            display.textContent = "UP";
-            break;
-        case "ArrowDown":
-            display.textContent = "Down";
-            break;
-        case "ArrowLeft":
-            display.textContent = "LEFT";
-            break;
-        case "ArrowRight":
-            display.textContent = "Right";
-            break;
-        default :
-            display.textContent = "Not an Arrow Key";
-    }
-}
-
-document.addEventListener("keydown", ShowDirection);;
-
-
-
-
-
-    draw(ctx, cellSize){
-        ctx.fileStyle = "green";
-        this.segments.forEach((segment)=>{
-            ctx.fillRect(segment.x * cellSize, segment.y * cellSize, cellSize, cellSize);
-        });
-    }
-        */
 }
