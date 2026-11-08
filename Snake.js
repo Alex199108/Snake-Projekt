@@ -6,6 +6,12 @@ class Snake {
     ArrowUp: "ArrowDown",
     ArrowDown: "ArrowUp",
   };
+  shiftOf = {
+    ArrowRight: { dx: 1, dy: 0 },
+    ArrowLeft: { dx: -1, dy: 0 },
+    ArrowUp: { dx: 0, dy: -1 },
+    ArrowDown: { dx: 0, dy: 1 },
+  };
   lastDirection = this.currentDirection;
   isGameOver = false;
 
@@ -86,15 +92,8 @@ class Snake {
   }
 
   getNextPosition(position, direction) {
-    if (direction === "ArrowRight") {
-      return { x: position.x + 1, y: position.y };
-    } else if (direction === "ArrowLeft") {
-      return { x: position.x - 1, y: position.y };
-    } else if (direction === "ArrowUp") {
-      return { x: position.x, y: position.y - 1 };
-    } else {
-      return { x: position.x, y: position.y + 1 };
-    }
+    const shift = this.shiftOf[direction];
+    return { x: position.x + shift.dx, y: position.y + shift.dy };
   }
 
   updateSnake() {
