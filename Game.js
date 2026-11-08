@@ -1,6 +1,12 @@
 class Game {
   speed = 200;
   lastMoveTime = 0;
+  speedLevels = [
+    { score: 150, speed: 50 },
+    { score: 100, speed: 100 },
+    { score: 30, speed: 150 },
+    { score: 0, speed: 200 },
+  ];
 
   constructor() {
     this.world = new World(600, 600);
