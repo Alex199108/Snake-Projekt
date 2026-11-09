@@ -54,7 +54,7 @@ class Snake {
   move() {
     const head = this.segments[this.segments.length - 1];
 
-    let newHead = this.getNextPosition(head, this.currentDirection);
+    const newHead = this.getNextPosition(head, this.currentDirection);
 
     if (
       newHead.x >= this.columns ||
@@ -67,18 +67,16 @@ class Snake {
       return;
     }
 
+    this.segments.push(newHead);
+
     if (
       newHead.x === this.food.position.x &&
       newHead.y === this.food.position.y
     ) {
       this.food.spawn(this.segments);
-      this.segments.push(newHead);
-
-      newHead = this.getNextPosition(newHead, this.currentDirection);
+    } else {
+      this.segments.shift();
     }
-
-    this.segments.shift();
-    this.segments.push(newHead);
     this.lastDirection = this.currentDirection;
   }
 
