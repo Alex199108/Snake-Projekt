@@ -4,9 +4,8 @@ class Food {
     y: null,
   };
 
-  constructor(world, snake) {
+  constructor(world) {
     this.world = world;
-    //this.snake = snake;
   }
 
   spawn(segments) {
@@ -14,10 +13,6 @@ class Food {
       this.position.x = Math.floor(Math.random() * this.world.columns);
       this.position.y = Math.floor(Math.random() * this.world.rows);
     } while (this.isOnSnake(segments));
-  }
-
-  getPosition() {
-    return this.position;
   }
 
   draw() {
@@ -29,13 +24,10 @@ class Food {
     const centerY = this.position.y * size + size / 2;
     const radius = size / 2;
 
-    //this.world.draw();
-    //this.snake.updateSnake();
     ctx.fillStyle = "pink";
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.fill();
-    //ctx.fillRect(this.position.x * size, this.position.y * size, size, size );
   }
 
   isOnSnake(segments) {
