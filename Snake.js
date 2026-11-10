@@ -15,9 +15,10 @@ class Snake {
   lastDirection = this.currentDirection;
   isGameOver = false;
 
-  constructor(world, food) {
+  constructor(world, food, game) {
     this.world = world;
     this.food = food;
+    this.game = game;
 
     this.segments = [
       { x: 5, y: 5 },
@@ -64,20 +65,24 @@ class Snake {
       this.isOnBody(newHead)
     ) {
       this.isGameOver = true;
-      return;
+      return false;
     }
 
     this.segments.push(newHead);
+    this.lastDirection = this.currentDirection;
 
     if (
       newHead.x === this.food.position.x &&
       newHead.y === this.food.position.y
     ) {
+      console.log(this.world);
+      this.game.addScore(this.food.typeOfFood.points);
       this.food.spawn(this.segments);
+      return true;
     } else {
       this.segments.shift();
+      return false;
     }
-    this.lastDirection = this.currentDirection;
   }
 
   isOnBody(newHead) {
@@ -108,8 +113,5 @@ class Snake {
         this.world.cellSize,
       );
     });
-  }
-  getScore() {
-    return (this.segments.length - this.startLength) * 10;
   }
 }
